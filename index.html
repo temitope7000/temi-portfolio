@@ -13,9 +13,11 @@
 
 
 <body>
+
     <header>
         <div class="logo">Temi<span>tope</span></div>
-        <nav>
+
+        <nav id="nav">
             <a href="#service">Services</a>
             <a href="#work">Work</a>
             <a href="#about">About</a>
@@ -23,17 +25,22 @@
             <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
         </nav>
+
         <div class="icon">
             <button id="themeBtn" aria-label="Switch to dark mode">
                 <i id="themeIcon" class="fa-solid fa-moon"></i>
             </button>
         </div>
-        <div class="menu-bar">
+
+        <div class="menu-bar" id="menuBtn">
             <i class="fa-solid fa-bars"></i>
         </div>
 
-        <a href="" class="hire">Hire me <i class="fa-regular fa-arrow-right"></i></a>
+        <a href="#contact" class="hire">
+            Hire me <i class="fa-solid fa-arrow-right"></i>
+        </a>
     </header>
+
 
     <main>
         <div class="intro">
@@ -228,7 +235,7 @@
                     <span>Tokens, components, docs — the process I</span><span> follow to spin up a coherent system in
                         48</span> hours.
                 </p>
-                
+
             </div>
 
             <div class="freelance">
@@ -283,7 +290,11 @@
     </div>
 
 
+
     <script>
+
+        // DARK AND LIGHT MODE
+
         const themeBtn = document.getElementById("themeBtn");
         const themeIcon = document.getElementById("themeIcon");
 
@@ -292,61 +303,61 @@
             document.body.classList.toggle("dark-mode");
 
             if (document.body.classList.contains("dark-mode")) {
+
                 themeIcon.classList.replace("fa-moon", "fa-sun");
+
                 themeBtn.setAttribute("aria-label", "Switch to light mode");
+
             } else {
+
                 themeIcon.classList.replace("fa-sun", "fa-moon");
+
                 themeBtn.setAttribute("aria-label", "Switch to dark mode");
+
             }
 
         });
 
-        const menuBtn = document.querySelector(".menubar");
-const nav = document.querySelector("header nav");
 
-menuBtn.addEventListener("click", () => {
-    nav.classList.toggle("active");
+        // MOBILE MENU
 
-    if (nav.classList.contains("active")) {
-        menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-    } else {
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    }
-});
-const menuBtn = document.querySelector(".menubar");
-const nav = document.querySelector("header nav");
+        const menuBtn = document.querySelector(".menu-bar");
+        const nav = document.querySelector("header nav");
 
-menuBtn.addEventListener("click", () => {
-    nav.classList.toggle("active");
+        menuBtn.addEventListener("click", () => {
 
-    menuBtn.innerHTML = nav.classList.contains("active")
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
-});
+            nav.classList.toggle("active");
 
-nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-        nav.classList.remove("active");
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    });
-});
-// Close menu when a link is clicked
-const navLinks = document.querySelectorAll("header nav a");
+            if (nav.classList.contains("active")) {
 
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        nav.classList.remove("active");
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    });
-});
+                menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+            } else {
+
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+            }
+
+        });
+
+
+        // CLOSE MENU WHEN A LINK IS CLICKED
+
+        const navLinks = document.querySelectorAll("header nav a");
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                nav.classList.remove("active");
+
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+            });
+
+        });
+
     </script>
-
-
-
-
-</body>
-
-</html>
 </body>
 
 </html>
